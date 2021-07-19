@@ -1,0 +1,181 @@
+
+      <!-- modal for change Password -->
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+  
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+         
+        </div>
+        <div class="modal-body">
+            <form action="">
+                <div class="form-group">
+                  <label for="email">Old Password:</label>
+                  <input type="password" class="form-control" id="email" placeholder="Enter old password">
+                </div>
+                <div class="form-group">
+                  <label for="pwd">New Password:</label>
+                  <input type="password" class="form-control" id="pwd" placeholder="Enter new password">
+                </div>
+                <div class="form-group">
+                    <label for="pwd">Confirm Password:</label>
+                    <input type="password" class="form-control" id="pwd" placeholder="Enter confirm password">
+                  </div>
+                
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Change Password</button>
+                  </div>
+              </form>
+        </div>
+       
+      </div>
+  
+    </div>
+  </div>
+
+
+  
+      <!-- modal for user Profile -->
+
+<!-- Modal -->
+<div id="myModal2" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+  
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+           
+          </div>
+          
+        <div class="modal-body">
+            <div class="text-center">
+                <img src="" class="rounded-circle" alt="...">
+              </div>  
+              
+              
+  <table class="table table-hover">
+  
+    <tbody>
+
+        <tr class="table-success">
+            <th>First Name:</th>
+            <td>Manpreet</td>
+        </tr>
+
+        <tr class="table-primary">
+            <th>Last:</th>
+            <td>Singh</td>
+        </tr>
+
+        <tr class="table-success">
+            <th>Email:</th>
+            <td>email@email.com</td>
+        </tr>
+
+        <tr class="table-primary"> 
+            <th>Phone:</th>
+            <td>1122554411</td>
+        </tr>
+
+        <tr class="table-success">
+            <th>City:</th>
+            <td>Delhi</td>
+        </tr>
+
+        <tr class="table-primary">
+            <th>State:</th>
+            <td>New Delhi</td>
+        </tr>
+
+        <tr class="table-success">
+            <th>Zip:</th>
+            <td>110037</td>
+        </tr>
+
+       
+
+    </tbody>
+  </table>
+
+  
+        </div>
+       
+       
+      </div>
+      
+  
+    </div>
+  </div>
+
+
+<section id="user">
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        
+        <a routerLink="/Admin/admin-dashboard"><i class="fa fa-home" aria-hidden="true"></i>Home</a>
+        <a routerLink="/Admin/adminblog"><i class="fa fa-th" aria-hidden="true"></i>My Blogs</a>
+        <a routerLink="/Admin/admin-user"><i class="fa fa-address-book" aria-hidden="true"></i>Users</a>
+        <a routerLink="/Admin/admin-addcategory"><i class="fa fa-address-book" aria-hidden="true"></i>Category</a>
+        <a routerLink="/Admin/admin-addsubcategory"><i class="fa fa-address-book" aria-hidden="true"></i>SubCategory</a>
+        <a href="#" data-toggle="modal" data-target="#myModal2"><i class="fa fa-user" aria-hidden="true"></i>Profile</a>
+        <a href="#"  data-toggle="modal" data-target="#myModal"><i class="fa fa-lock" aria-hidden="true"></i>Change Password</a>
+        <a type="button" (click)="logout()"><i class="fa fa-sign-out-alt"></i>Logout</a>
+      </div>
+      <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Dashboard</span>
+
+      
+   
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12-md-12">
+                <div id="one">
+                    <h1 style="text-align: center;">Admin</h1>
+                    <form [formGroup]="blogForm">
+                      <div class="form-group">
+                        <label for="exampleFormControlInput1">Title</label>
+                        <input type="text" formControlName="title" class="form-control" id="exampleFormControlInput1" placeholder="Title">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Category</label>
+                        <select formControlName="categoryId" class="form-control" (change)="filterSubCategory($event)">
+                            <option *ngFor="let obj of allCategoryObj" [value]="obj._id">{{obj.name}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Sub Category</label>
+                        <select formControlName="subCategoryId" class="form-control">
+                            <option [value]="obj._id" *ngFor="let obj of tempAllSubCategoryObj">{{obj.name}}</option>
+                        </select>
+                    </div>
+
+                   <div id="editor">
+                        <angular-editor id="Myeditor" formControlName="blogContent" [config]="editorConfig"></angular-editor>
+                      </div> 
+                      <div class="form-group">
+                        <div class="row">
+                            <div class="col-11"><input type="file" (change)="uploadImage($event)"></div>
+                        </div>
+                        <div class="row" *ngFor="let obj of displayArr;index as i ">
+                            <div class="col-11">{{obj}}</div>
+                            <div class="col-1"><button class="btn btn-danger" (click)="deleteImage(i)">X</button></div>
+                        </div>
+                    </div>
+                     
+                        
+                        <button class="btn btn-primary" (click)="blogPost()" type="submit">Post</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</section>
+

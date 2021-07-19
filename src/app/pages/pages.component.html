@@ -1,0 +1,243 @@
+
+
+<section id="pages">
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        
+        <a routerLink="/dashboard"><i class="fa fa-home" aria-hidden="true"></i>Home</a>
+        <a routerLink="/pages"><i class="fa fa-th" aria-hidden="true"></i>My Blogs</a>
+        <a href="#" data-toggle="modal" data-target="#myModal2"><i class="fa fa-user" aria-hidden="true"></i>Profile</a>
+        <a href="#"  data-toggle="modal" data-target="#myModal"><i class="fa fa-lock" aria-hidden="true"></i>Change Password</a>
+        <a type="button" (click)="logout()"><i class="fa fa-user" aria-hidden="true"></i>Logout</a>
+      </div>
+      <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Dashboard</span>
+
+    <h1>My Blogs</h1>
+    <hr>
+
+        <!-- <div class="container">
+            <div class="row">
+
+                <div class="col-md-4" *ngFor="let obj of blogArr; index as i">
+
+
+                <div class="card" style="width: 18rem;">
+                  <img src="{{obj.imageArr}}" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">{{obj.title}}</h5>
+                    <p class="card-text">{{obj.blogContent}}</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                  </div>
+                </div>
+
+                </div>
+
+
+           
+
+            </div>
+
+          
+
+        </div> -->
+
+        <div class="container">
+      
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
+          
+          <div class="col mb-4" *ngFor="let obj of blogArr; index of i">
+            <div class="card">
+              <img src="{{obj.imageArr}}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">{{obj.title}}</h5>
+                <p class="card-text">{{obj.blogContent}}</p>
+            <i (click)="deleteBlog(obj._id)" style="cursor: pointer;" class="fa fa-trash" aria-hidden="true"></i>
+
+            <i class="fa fa-edit" style="cursor: pointer;" data-toggle="modal" data-target="#exampleModal" (click)="setModalId(obj._id)"></i>
+
+              </div>
+            </div>
+
+          </div>
+
+         
+        </div>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+        
+                <form [formGroup]="blogForm">
+                  <div class="form-group">
+                    <label for="exampleFormControlInput1">Title</label>
+                    <input type="text" formControlName="title" class="form-control" id="exampleFormControlInput1" placeholder="Title">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Category</label>
+                    <select formControlName="categoryId" class="form-control" (change)="filterSubCategory($event)">
+                        <option *ngFor="let obj of allCategoryObj" [value]="obj._id">{{obj.name}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Sub Category</label>
+                    <select formControlName="subCategoryId" class="form-control">
+                        <option [value]="obj._id" *ngFor="let obj of tempAllSubCategoryObj">{{obj.name}}</option>
+                    </select>
+                </div>
+        
+               <div id="editor">
+                    <angular-editor formControlName="blogContent" [config]="editorConfig"></angular-editor>
+                  </div> 
+                  <div class="form-group">
+                    <div class="row">
+                        <div class="col-11"><input type="file" (change)="uploadImage($event)"></div>
+                    </div>
+                    <div class="row" *ngFor="let obj of displayArr;index as i ">
+                        <div class="col-11">{{obj}}</div>
+                        <div class="col-1"><button class="btn btn-danger" (click)="deleteImage(i)">X</button></div>
+                    </div>
+                </div>
+                 
+                    
+                    <button class="btn btn-primary" (click)="updateBlog()" type="submit">Post</button>
+                </form>
+        
+              </div>
+            
+            </div>
+          </div>
+        </div>
+
+
+      
+          
+        </div>
+        <!-- /.container -->
+        
+
+    
+
+</section>
+
+
+      <!-- modal for change Password -->
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+  
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+         
+        </div>
+        <div class="modal-body">
+            <form action="">
+                <div class="form-group">
+                  <label for="email">Old Password:</label>
+                  <input type="password" class="form-control" id="email" placeholder="Enter old password">
+                </div>
+                <div class="form-group">
+                  <label for="pwd">New Password:</label>
+                  <input type="password" class="form-control" id="pwd" placeholder="Enter new password">
+                </div>
+                <div class="form-group">
+                    <label for="pwd">Confirm Password:</label>
+                    <input type="password" class="form-control" id="pwd" placeholder="Enter confirm password">
+                  </div>
+                
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Change Password</button>
+                  </div>
+              </form>
+        </div>
+       
+      </div>
+  
+    </div>
+  </div>
+
+  <!-- modal for user Profile -->
+
+<!-- Modal -->
+<div id="myModal2" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+  
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+           
+          </div>
+          
+        <div class="modal-body">
+            <div class="text-center">
+                <img src="../../../assets/img/saket.jpg" class="rounded-circle" alt="...">
+              </div>  
+              
+              
+  <table class="table table-hover">
+  
+    <tbody>
+
+        <tr class="table-success">
+            <th>First Name:</th>
+            <td>{{meUser.fname}}</td>
+        </tr>
+
+        <tr class="table-primary">
+            <th>Last:</th>
+            <td>{{meUser.lname}}</td>
+        </tr>
+
+        <tr class="table-success">
+            <th>Email:</th>
+            <td>{{meUser.email}}</td>
+        </tr>
+
+        <tr class="table-primary"> 
+            <th>Phone:</th>
+            <td>{{meUser.number}}</td>
+        </tr>
+
+        <tr class="table-success">
+            <th>City:</th>
+            <td>{{meUser.city}}</td>
+        </tr>
+
+        <tr class="table-primary">
+            <th>State:</th>
+            <td>{{meUser.state}}</td>
+        </tr>
+
+        <!-- <tr class="table-success">
+            <th>Zip:</th>
+            <td>226012</td>
+        </tr> -->
+
+       
+
+    </tbody>
+  </table>
+
+  
+        </div>
+       
+       
+      </div>
+      
+  
+    </div>
+  </div>
+
+
+
+

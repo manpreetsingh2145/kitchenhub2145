@@ -1,0 +1,149 @@
+
+/*FOOTER*/
+
+footer {
+    background: #363636;
+    
+    
+    margin-top:0px;
+    
+  }
+  
+  footer a {
+    color: #fff;
+    font-size: 14px;
+    transition-duration: 0.2s;
+  }
+  
+  footer a:hover {
+    color: #FA944B;
+    text-decoration: none;
+  }
+  
+  .navbar-brand{
+   
+     margin-left: 450px;
+  }
+
+ 
+  .footer-middle {
+    padding-top: 2em;
+    color: white;
+  }
+  
+  .footer-pad{
+    margin-left: 150px;;
+  }
+  
+  /*SOCİAL İCONS*/
+  
+  /* footer social icons */
+  
+  ul.social-network {
+    list-style: none;
+    display: inline;
+    margin-left: 0 !important;
+    padding: 0;
+  }
+  
+  ul.social-network li {
+    display: inline;
+    margin: 0 5px;
+  }
+  
+  #foot{
+    margin-left: 500px;
+  }
+  
+  
+  
+  
+  .social-network a.icoFacebook:hover {
+    background-color: #3B5998;
+  }
+  
+  .social-network a.icoLinkedin:hover {
+    background-color: #007bb7;
+  }
+  
+  .social-network a.icoFacebook:hover i,
+  .social-network a.icoLinkedin:hover i {
+    color: #fff;
+  }
+  
+  .social-network a.socialIcon:hover,
+  .socialHoverClass {
+    color: #44BCDD;
+  }
+  
+  .social-circle li a {
+    display: inline-block;
+    position: relative;
+    margin: 0 auto 0 auto;
+   
+    border-radius: 50%;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    font-size: 15px;
+  }
+  
+  .social-circle li i {
+    margin: 0;
+    line-height: 30px;
+    text-align: center;
+  }
+  
+  
+  .social-network a {
+    background-color: #F9F9F9;
+  }
+
+  .text-container h1{
+    font-family: 'Fontdiner Swanky', cursive;
+  
+    color: rgba(255,255,255,.2);
+    background-image: url('../../assets/img/colors.jpg');
+  /*   background-position: center; */
+   
+    background-size: 270px;
+    background-repeat: repeat-x;
+    -webkit-background-clip: text;
+    animation: animate 15s linear infinite;
+  }
+  
+  @keyframes animate {
+    0% {
+      background-position: left 0px top 0px;
+    }
+    40% {
+      background-position: left 800px top 0px;
+    }
+  }
+  
+  .text-container {
+    margin-top: 17%;
+    text-align: center;
+  }
+
+  .back-to-top{
+      background-color: paleturquoise;
+      float: right;
+      margin-right: -120px;
+      margin-bottom: 100px;
+      width: 40px;
+      height: 50px;
+      border-radius: 40px;
+  }
+
+  .back-to-top:hover{
+      background-color: coral;
+      transition: all 0.4s;
+  }
+
+  .fa{
+      color: black;
+      padding-left: 15px;
+      padding-top: 18px;
+      size: 10px;
+  }

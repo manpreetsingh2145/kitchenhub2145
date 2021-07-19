@@ -1,0 +1,137 @@
+<app-navbar></app-navbar>
+
+<img class="wave" src="../../../assets/img/wave.png">
+<div class="container">
+  <div class="img">
+    <img src="../../../assets/img/bg.svg">
+  </div>
+  <div class="login-content">
+    <form [formGroup]="signupForm">
+      <img src="../../../assets/img/avatar.svg">
+      <h2 class="title">Sign-up Here</h2>
+             <div class="input-div one">
+                <div class="i">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="div">
+                    
+                    <input type="text" formControlName="fname" class="input" placeholder="First Name" [ngClass]="{'is-invalid': signupForm.get('fname').touched && signupForm.get('fname').invalid}">
+                    <div class="invalid-feedback">
+                     <div>**First Name Is Required**</div>
+      
+                  </div>
+                </div>
+              
+             </div>
+           
+
+             <div class="input-div one">
+              <div class="i">
+                  <i class="fas fa-user"></i>
+              </div>
+              <div class="div">
+                  
+                  <input type="text" formControlName="lname" class="input" placeholder="Last Name" [ngClass]="{'is-invalid': signupForm.get('lname').touched && signupForm.get('lname').invalid}">
+                  <div class="invalid-feedback">
+                     <div>**Last Name Is Required**</div>
+   
+                  </div>
+               </div>
+           </div>
+
+           <div class="input-div one">
+            <div class="i">
+               <i class="fa fa-envelope" aria-hidden="true"></i>
+            </div>
+            <div class="div">
+                
+                <input type="email" formControlName="email" class="input" placeholder="Enter your email" [ngClass]="{'is-invalid': signupForm.get('email').touched && signupForm.get('email').invalid}" required>
+                <div class="invalid-feedback">
+                  <div>**Email Is Required**</div>
+
+               </div>
+               </div>
+
+         </div>
+
+         <div class="input-div one">
+            <div class="i">
+               <i class="fa fa-user" aria-hidden="true"></i>
+            </div>
+            <div class="div">
+                
+                <input type="text" formControlName="username" class="input" placeholder="Enter your Username" [ngClass]="{'is-invalid': signupForm.get('username').touched && signupForm.get('username').invalid}">
+                <div class="invalid-feedback">
+                  <div>**username Is Required**</div>
+
+               </div>
+               </div>
+         </div>
+             <div class="input-div pass">
+                <div class="i"> 
+                   <i class="fas fa-phone"></i>
+                </div>
+                <div class="div">
+                   
+                   <input type="text" formControlName="number" class="input" placeholder="Mobile Number" [ngClass]="{'is-invalid': signupForm.get('number').touched && signupForm.get('number').invalid}">
+                   <div class="invalid-feedback">
+                     <div>**Mobile Number Is Required**</div>
+   
+                  </div>
+                  </div>
+            </div>
+
+            <div class="input-div pass">
+              <div class="i"> 
+                 <i class="fas fa-lock"></i>
+              </div>
+              <div class="div">
+                 
+                 <input type="password" formControlName="password" class="input" placeholder="Password" [ngClass]="{'is-invalid': signupForm.get('password').touched && signupForm.get('password').invalid}">
+                 <div class="invalid-feedback">
+                  <div>**Password Is Required**</div>
+
+               </div>
+               </div>
+          </div>
+
+      
+
+        
+        <div class="input-div pass">
+          <div class="i"> 
+             <i class="fas fa-home"></i>
+          </div>
+          <div class="div">
+             
+             <input type="text" formControlName="city" class="input" placeholder="City" [ngClass]="{'is-invalid': signupForm.get('city').touched && signupForm.get('city').invalid}">
+             <div class="invalid-feedback">
+               <div>**City Is Required**</div>
+
+            </div>
+            </div>
+      </div>
+
+      
+      <div class="input-div pass">
+        <div class="i"> 
+           <i class="fas fa-lock"></i>
+        </div>
+        <div class="div">
+           
+           <input type="text" formControlName="state" class="input" placeholder="State" [ngClass]="{'is-invalid': signupForm.get('state').touched && signupForm.get('city').invalid}">
+           <div class="invalid-feedback">
+            <div>**State Is Required**</div>
+
+         </div>
+         </div>
+    </div>
+    
+    <a class="nav-link" routerLink="/login">All ready have account?</a>
+            <input type="submit" (click)="addData()" [disabled]="!signupForm.valid" class="btn" value="Sign-up">
+          </form>
+      </div>
+</div>
+
+<script type="text/javascript" src="../../../assets/js/main.js"></script>
+

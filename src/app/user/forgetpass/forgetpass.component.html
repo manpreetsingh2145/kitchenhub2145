@@ -1,0 +1,29 @@
+<app-navbar></app-navbar>
+	<img class="wave" src="../../../assets/img/wave.png">
+	<div class="container">
+		<div class="img">
+			<img src="../../../assets/img/bg.svg">
+		</div>
+		<div class="login-content">
+			<form [formGroup]="resetForm">
+				<img src="../../../assets/img/avatar.svg">
+				<p class="title">Enter Your Registered email.</p>
+           		<div class="input-div one">
+           		   <div class="i">
+           		   		<i class="fas fa-user"></i>
+           		   </div>
+           		   <div class="div">
+           		   		
+				<input type="text" formControlName= "email" class="input" placeholder="Enter Your email" required>
+							
+           		   </div>
+           		</div>
+    
+				
+            	<input (click)="forgotPass()" type="submit" class="btn" value="Send">
+            </form>
+        </div>
+	</div>
+
+	<script type="text/javascript" src="../../../assets/js/main.js"></script>
+

@@ -1,0 +1,19 @@
+<div class="container">
+
+    <div class="row">
+
+        <form [formGroup]="subCategoryForm">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Category</label>
+                <select formControlName="categoryId" class="form-control">
+                    <option *ngFor="let obj of allCategoryObj" [value]="obj._id">{{obj.name}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Add Sub Category</label>
+                <input formControlName="name" class="form-control" placeholder="Enter title">
+            </div>
+        </form>
+    </div>
+    <button type="submit" (click)="addSubCategory()" class="btn btn-primary mt-5">Submit</button>
+</div>

@@ -1,0 +1,21 @@
+<section id="contact" style="margin-top: -20px;">
+        <div class="container">
+        <h1>Get in touch</h1>
+        <hr>
+        <form [formGroup]="contactForm">
+       <div class="contact-fome">
+        <div class="input-class">
+            <input type="text" formControlName="name" class="input" placeholder="Your Name" required>
+            <input type="email" formControlName="email" class="input" placeholder="Your E-mail" required>
+            <input type="tel" formControlName="number" class="input" placeholder="Phone" required>
+            <input type="text" formControlName="subject" class="input" placeholder="Subject">
+        </div>
+        <div class="msg">
+            <textarea formControlName="message" placeholder="Message" cols="30" rows="10"></textarea>
+            <button class="btn" type="submit" (click)="send()">Send</button>
+        </div>
+        </div>
+    </form>
+    </div>
+
+</section>

@@ -1,0 +1,174 @@
+
+      <!-- modal for change Password -->
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+  
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+         
+        </div>
+        <div class="modal-body">
+            <form action="">
+                <div class="form-group">
+                  <label for="email">Old Password:</label>
+                  <input type="password" class="form-control" id="email" placeholder="Enter old password">
+                </div>
+                <div class="form-group">
+                  <label for="pwd">New Password:</label>
+                  <input type="password" class="form-control" id="pwd" placeholder="Enter new password">
+                </div>
+                <div class="form-group">
+                    <label for="pwd">Confirm Password:</label>
+                    <input type="password" class="form-control" id="pwd" placeholder="Enter confirm password">
+                  </div>
+                
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Change Password</button>
+                  </div>
+              </form>
+        </div>
+       
+      </div>
+  
+    </div>
+  </div>
+
+
+  
+      <!-- modal for user Profile -->
+
+<!-- Modal -->
+<div id="myModal2" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+  
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+           
+          </div>
+          
+        <div class="modal-body">
+            <div class="text-center">
+                <img src="../../../assets/img/saket.jpg" class="rounded-circle" alt="...">
+              </div>  
+              
+              
+  <table class="table table-hover">
+  
+    <tbody>
+
+        <tr class="table-success">
+            <th>First Name:</th>
+            <td>Saket</td>
+        </tr>
+
+        <tr class="table-primary">
+            <th>Last:</th>
+            <td>Bari</td>
+        </tr>
+
+        <tr class="table-success">
+            <th>Email:</th>
+            <td>saketbari2015@gmail.com</td>
+        </tr>
+
+        <tr class="table-primary"> 
+            <th>Phone:</th>
+            <td>9336196700</td>
+        </tr>
+
+        <tr class="table-success">
+            <th>City:</th>
+            <td>Lucknow</td>
+        </tr>
+
+        <tr class="table-primary">
+            <th>State:</th>
+            <td>Uttar Pradesh</td>
+        </tr>
+
+        <tr class="table-success">
+            <th>Zip:</th>
+            <td>226012</td>
+        </tr>
+
+       
+
+    </tbody>
+  </table>
+
+  
+        </div>
+       
+       
+      </div>
+      
+  
+    </div>
+  </div>
+
+
+<section id="user">
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        
+        <a routerLink="/Admin/admin-dashboard"><i class="fa fa-home" aria-hidden="true"></i>Home</a>
+        <a routerLink="/Admin/adminblog"><i class="fa fa-th" aria-hidden="true"></i>My Blogs</a>
+        <a routerLink="/Admin/admin-user"><i class="fa fa-address-book" aria-hidden="true"></i>Users</a>
+        <a routerLink="/Admin/admin-addcategory"><i class="fa fa-address-book" aria-hidden="true"></i>Category</a>
+        <a routerLink="/Admin/admin-addsubcategory"><i class="fa fa-address-book" aria-hidden="true"></i>SubCategory</a>
+        <a href="#" data-toggle="modal" data-target="#myModal2"><i class="fa fa-user" aria-hidden="true"></i>Profile</a>
+        <a href="#"  data-toggle="modal" data-target="#myModal"><i class="fa fa-lock" aria-hidden="true"></i>Change Password</a>
+        <a type="button" (click)="logout()"><i class="fa fa-sign-out-alt"></i>Logout</a>
+      </div>
+      <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Dashboard</span>
+
+      
+      <div class="container">
+        <div class="row">
+
+
+            <div class="col-md-4" *ngFor="let obj of blogArr; index as i" style="padding: 10px;">
+                <div class="image__wrapper">
+            <!-- <form [formGroup]="setFlag"> -->
+
+
+
+                    <img src="{{obj.imageArr}}" alt="Responsive image">
+                    <div class="image__wrapper-text">
+                        <h5>{{obj.title}}</h5>
+                        <p>{{obj.blogContent}}</p>
+                    <i (click)="deleteBlog(obj._id)" style="cursor: pointer;" class="fa fa-trash" aria-hidden="true"></i>
+                    <!-- <button  class="btn btn-danger" (click)="setFlagTrue(obj._id)">Approve</button> -->
+                    <i class="fa fa-check" style="cursor: pointer;" (click)="setFlagTrue(obj._id)" aria-hidden="true"></i>
+                     
+
+                    </div>
+        <!-- </form> -->
+
+                </div>
+
+               
+
+
+            </div>
+
+
+
+       
+
+        </div>
+
+      
+
+    </div>
+
+
+</section>
+

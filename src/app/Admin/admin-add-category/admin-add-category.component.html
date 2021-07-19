@@ -1,0 +1,14 @@
+<div class="container">
+
+    <div class="row">
+
+        <form [formGroup]="categoryForm">
+            <div class="form-group">
+                <label>Add Category</label>
+                <input formControlName="name" class="form-control" placeholder="Enter title">
+            </div>
+        </form>
+        
+    </div>
+    <button type="submit" (click)="addCategory()" class="btn btn-primary mt-5">Submit</button>
+</div>

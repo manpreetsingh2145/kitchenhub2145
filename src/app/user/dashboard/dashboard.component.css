@@ -1,0 +1,164 @@
+/* #user{
+    background-color: darkgrey;
+    height: 800px;
+} */
+
+#one{
+    width: 900px;
+    height: 750px;
+    background-color: rgb(204, 183, 127);
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+   
+    margin-left: 120px;
+    margin-top: 10px;
+    margin-bottom: 35px;
+  
+}
+
+#editor{
+  margin-left: 80px;
+}
+
+
+.btn-primary {
+    margin-left: 350px;
+    margin-top: 30px;
+    width: 100px;
+}
+
+#one .form-group,.custom-file{
+    width:750px;
+    margin-left: 80px;
+
+}
+
+.custom-file{
+
+    margin-top: 5px;
+
+}
+
+.modal-footer .btn-primary{
+    width: 600px;
+    margin-left: 10px;
+}
+
+.navbar-brand{
+  float: right;
+  margin-top: -75px;
+  cursor:pointer;
+}
+
+.text-container h1{
+  font-family: 'Fontdiner Swanky', cursive;
+  font-size: 30px;
+ 
+
+  color: rgba(255,255,255,.2);
+  background-image: url('../../../assets/img/colors.jpg');
+/*   background-position: center; */
+ 
+  background-size: 270px;
+  background-repeat: repeat-x;
+  -webkit-background-clip: text;
+  animation: animate 15s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+    background-position: left 0px top 0px;
+  }
+  40% {
+    background-position: left 800px top 0px;
+  }
+}
+
+.text-container {
+  margin-top: 17%;
+  text-align: center;
+}
+
+.hand-cursor{
+  
+  position: relative;
+  right: 38px;
+  top: 30px;
+}
+
+.photo_text{
+  position: relative;
+  top: 20px;
+  font-size: 15px;
+  right: 60px;
+
+}
+
+
+
+/* for sidenavbar */
+
+/* The side navigation menu */
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #111; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  }
+  
+  /* The navigation menu links */
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  /* When you mouse over the navigation links, change their color */
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+  
+  /* Position and style the close button (top right corner) */
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+  #main {
+    transition: margin-left .5s;
+    padding: 20px;
+  }
+  
+  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+
+
+  /* for user profile */
+
+  .text-center img{
+      width: 150px;
+      height: 150px;
+      margin-bottom: 10px;
+      position: relative;
+      left: 50px;
+  }
+
+ .fa{
+    margin-right: 10px;
+ }

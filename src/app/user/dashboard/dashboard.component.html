@@ -1,0 +1,200 @@
+
+
+      <!-- modal for change Password -->
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+  
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+         
+        </div>
+        <div class="modal-body">
+            <form action="" [formGroup]="updateForm">
+                <div class="form-group">
+                  <label for="email">Old Password:</label>
+                  <input type="password" formControlName="oldPass" class="form-control" id="email" placeholder="Enter old password">
+                </div>
+                <div class="form-group">
+                  <label for="pwd">New Password:</label>
+                  <input type="password" formControlName="password" class="form-control" id="pwd" placeholder="Enter new password">
+                </div>
+            
+                  <div class="modal-footer">
+                    <button type="button" (click)="updatePass()" class="btn btn-primary">Change Password</button>
+                  </div>
+              </form>
+        </div>
+       
+      </div>
+  
+    </div>
+  </div>
+
+
+  
+      <!-- modal for user Profile -->
+
+<!-- Modal -->
+<div id="myModal2" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+  
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+           
+          </div>
+          
+        <div class="modal-body">
+            <div class="text-center">
+                
+               
+                  <img src="../../../assets/img/profile.jpg" class="rounded-circle" alt="...">
+                  <label class="hand-cursor">
+                   <input style="display: none;" type="file" nv-file-select uploader="$ctrl.uploader"/>
+                   <span class="fa fa-camera" style="cursor: pointer;"></span>
+                   <span class="photo_text hidden-xs" style="cursor: pointer;">Update Profile</span>
+                    </label>
+           
+
+               
+              </div>  
+              
+              
+  <table class="table table-hover">
+  
+    <tbody>
+
+        <tr class="table-success">
+            <th>First Name:</th>
+            <td>{{meUser.fname}}</td>
+        </tr>
+
+        <tr class="table-primary">
+            <th>Last:</th>
+            <td>{{meUser.lname}}</td>
+        </tr>
+
+        <tr class="table-success">
+            <th>Email:</th>
+            <td>{{meUser.email}}</td>
+        </tr>
+
+        <tr class="table-primary"> 
+            <th>Phone:</th>
+            <td>{{meUser.number}}</td>
+        </tr>
+
+        <tr class="table-success">
+            <th>City:</th>
+            <td>{{meUser.city}}</td>
+        </tr>
+
+        <tr class="table-primary">
+            <th>State:</th>
+            <td>{{meUser.state}}</td>
+        </tr>
+
+        <!-- <tr class="table-success">
+            <th>Zip:</th>
+            <td>226012</td>
+        </tr> -->
+
+       
+
+    </tbody>
+  </table>
+
+  
+        </div>
+       
+       
+      </div>
+      
+  
+    </div>
+  </div>
+
+
+<section id="user">
+
+  
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  
+        
+        <a routerLink="/dashboard"><i class="fa fa-home" aria-hidden="true"></i>Home</a>
+        <a routerLink="/pages"><i class="fa fa-th" aria-hidden="true"></i>My Blogs</a>
+        <a href="#" data-toggle="modal" data-target="#myModal2"><i class="fa fa-user" aria-hidden="true"></i>Profile</a>
+        <a href="#"  data-toggle="modal" data-target="#myModal" data-toggle="modal"><i class="fa fa-lock" aria-hidden="true"></i>Change Password</a>
+        <a type="button" (click)="logout()"><i class="fa fa-user" aria-hidden="true"></i>Logout</a>
+      </div>
+      <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Dashboard</span>
+      <hr style="background-color: black;">
+
+      
+   <div class="col-md-12">
+      <!-- <h3 style="float: right; margin-top: -48px;"></h3> -->
+      <span style="float: right; margin-top: -70px; font-size:30px;"></span>
+      <div class="row">
+        <div class="col-md-12 copy">
+          <a class="navbar-brand" data-toggle="modal" data-target="#myModal2" ><span class="text-container"><h1>Hey {{meUser.fname}}</h1></span></a>
+        </div>
+    </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            
+                <div id="one" class="col-lg-6-md-12">
+                    <h1 style="text-align: center;">Your Blog</h1>
+                    <form [formGroup]="blogForm">
+                        <div class="form-group">
+                          <label for="exampleFormControlInput1">Title</label>
+                          <input type="text" formControlName="title" class="form-control" id="exampleFormControlInput1" placeholder="Title">
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Category</label>
+                          <select formControlName="categoryId" class="form-control" (change)="filterSubCategory($event)">
+                              <option *ngFor="let obj of allCategoryObj" [value]="obj._id">{{obj.name}}</option>
+                          </select>
+                      </div>
+                      <div class="form-group">
+                          <label for="exampleInputPassword1">Sub Category</label>
+                          <select formControlName="subCategoryId" class="form-control">
+                              <option [value]="obj._id" *ngFor="let obj of tempAllSubCategoryObj">{{obj.name}}</option>
+                          </select>
+                      </div>
+
+                     <div id="editor">
+                          <angular-editor id="Myeditor" formControlName="blogContent" [config]="editorConfig"></angular-editor>
+                        </div> 
+                        <div class="form-group">
+                          <div class="row">
+                              <div class="col-11"><input type="file" (change)="uploadImage($event)"></div>
+                          </div>
+                          <div class="row" *ngFor="let obj of displayArr;index as i ">
+                              <div class="col-11">{{obj}}</div>
+                              <div class="col-1"><button class="btn btn-danger" (click)="deleteImage(i)">X</button></div>
+                          </div>
+                      </div>
+                       
+                          
+                          <button class="btn btn-primary" (click)="blogPost()" type="submit">Post</button>
+                      </form>
+                      
+                </div>
+           
+        </div>
+    </div>
+
+
+
+
+
+
+</section>
+

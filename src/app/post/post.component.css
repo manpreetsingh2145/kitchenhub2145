@@ -1,0 +1,70 @@
+h1, h5{
+    text-align: center;
+    margin-top: 20px;
+}
+hr {
+    width: 105px;
+    background-color: red;
+    border: 0;
+    height: 2px;
+    margin-bottom: 30px;
+  }
+
+  .carousel-caption {
+    position: relative;
+    left: 0;
+    top: 0;
+}
+
+#story{
+    margin-top: -20px;
+    background-color: rgb(212, 213, 214);
+}
+
+.carousel-item img{
+  
+    height: 400px;
+}
+
+.bd-example{
+    width: 700px;
+}
+
+
+.card{
+    background-color: rgba(245, 245, 245, 0.849);
+    height: 500px;
+    width: 450px;
+    margin-right: -60px;
+   
+}
+
+#post{
+    position: relative;
+    bottom: 540px;
+    
+}
+
+.wrap-img img{
+    width: 100px;
+    margin-right: 10px;
+    margin-left: 0px;
+   
+    float: left;
+   
+}
+
+.wrap-img p{
+    text-align: justify;
+    margin-left: 20px;
+    
+}
+
+.wrap-img p a{
+    text-decoration: none;
+}
+
+.wrap-img p:hover a{
+    color: black;
+    transition: all 0.4s;
+}

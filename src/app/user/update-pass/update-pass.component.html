@@ -1,0 +1,42 @@
+<app-navbar></app-navbar>
+	<img class="wave" src="../../../assets/img/wave.png">
+	<div class="container">
+		<div class="img">
+			<img src="../../../assets/img/bg.svg">
+		</div>
+		<div class="login-content">
+			<form [formGroup]="updateForm">
+				<img src="../../../assets/img/avatar.svg">
+				<p class="title">Enter Your Registered email.</p>
+           		<div class="input-div one">
+           		   <div class="i">
+           		   		<i class="fas fa-user"></i>
+           		   </div>
+           		   <div class="div">
+           		   		
+				<input type="password" formControlName= "password" class="input" placeholder="new password" required>
+							
+           		   </div>
+           		</div>
+           		<!-- <div class="input-div pass">
+           		   <div class="i"> 
+           		    	<i class="fas fa-lock"></i>
+           		   </div>
+           		   <div class="div">
+           		    	
+				<input formControlName= "password" id="showpw"type="password" class="input" placeholder="Password"><button type="button" (click)="call()">
+					<i class="fa fa-eye"></i>
+				</button>
+						   
+				   </div>
+				   
+            	</div> -->
+				
+				
+            	<input (click)="updatePassme()" type="submit" class="btn" value="Send">
+            </form>
+        </div>
+	</div>
+
+	<script type="text/javascript" src="../../../assets/js/main.js"></script>
+
